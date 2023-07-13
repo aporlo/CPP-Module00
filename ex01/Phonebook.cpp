@@ -1,6 +1,6 @@
 #include "Phonebook.hpp"
 
-PhoneBook::PhoneBook() : contacts_number(0) , i(0)
+PhoneBook::PhoneBook() : contacts_number(0)
 {
 }
 
@@ -10,9 +10,6 @@ PhoneBook::~PhoneBook()
 
 void PhoneBook::add_contact(void)
 {
-	// int i;
-	// i = 0;
-
 	std::string fname;
 	std::string lname;
 	std::string nname;
@@ -35,25 +32,13 @@ void PhoneBook::add_contact(void)
 	while (darkest_s.empty())
 		std::cin >> darkest_s;
 	Contact contact(fname, lname, nname, phone, darkest_s);
-	// if (i < 8)
-	// {
 	if (this->contacts_number < 8) {
 		this->_contacts[contacts_number] = contact;
 		this->contacts_number++;
 		std::cout << contacts_number << std::endl;
-	}
-	else if (this->contacts_number == 8 && i << 8)
-	{
-		std::cout << i << std::endl;
-		std::cout << "hollw" << std::endl;
-		this->_contacts[contacts_number - i] = contact;
-		i++;
-		if (i == 8)
-			i = 0;
-	}
-	// 	i++;
-	// }
-	// std::cout << i << std::endl;
+		if (this->contacts_number == 8)
+			this->contacts_number = 0;
+	} 
 }
 
 void PhoneBook::find_contact(void) const
@@ -76,14 +61,12 @@ void PhoneBook::find_contact(void) const
 void PhoneBook::print_contacts(void) const
 {
 	int i;
-	std::cout << "---------------------------------------" << std::endl;
+	std::cout << "----------------------------------------------" << std::endl;
 	std::cout << std::setw(10) << std::right << "Index" << "|";
 	std::cout << std::setw(10) << std::right << "First Name" << "|";
 	std::cout << std::setw(10) << std::right << "Last Name" << "|";
 	std::cout << std::setw(10) << std::right << "NickName" << "|" << std::endl;
-	std::cout << "---------------------------------------" << std::endl;
-	// std::cout << std::setw(10) << std::right << "Phone Number" << "|";
-	// std::cout << std::setw(10) << std::right << "darkest secret" << "|";
+	std::cout << "----------------------------------------------" << std::endl;
 	i = 0;
 	while (i < 8)
 	{

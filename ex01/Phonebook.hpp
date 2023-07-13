@@ -20,7 +20,6 @@ public:
 
 private:
 	int			contacts_number;
-	int			i;
 	Contact _contacts[8];
 };
 
