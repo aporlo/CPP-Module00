@@ -27,6 +27,8 @@ int main()
 			continue;
 		if (command == "ADD") {
             book.add_contact();
+            // if(!book.add_new_contact())
+            //     std::cout << "Error: too many contacts" << std::endl;
 		} else if (command == "SEARCH") {
 			 std::cout << "SEARCH" << std::endl;
 			 book.find_contact();

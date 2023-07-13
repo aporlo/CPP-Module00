@@ -32,6 +32,7 @@ public:
 
 	void print_head(void) const;
 	void print_infos(void) const;
+	
 private:
 	std::string _fname;
 	std::string _lname;

@@ -14,10 +14,13 @@ public:
 	~PhoneBook();
 
 	void add_contact(void);
+	bool add_new_contact();
 	void print_contacts(void) const;
 	void find_contact(void) const;
 
 private:
+	int			contacts_number;
+	int			i;
 	Contact _contacts[8];
 };
 
