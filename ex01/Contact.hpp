@@ -1,6 +1,9 @@
 #ifndef CONTACT_H
 # define CONTACT_H
+
 #include <string>
+#include <iostream>
+#include <iomanip>
 
 
 # define RED		"\033[0;31m"
@@ -16,13 +19,27 @@
 # define RESET		"\033[0m"
 
 class Contact {
+	//Constuctors
+public:
+	Contact();
+	Contact(std::string fname,
+		std::string lname,
+		std::string nname,
+		std::string phone,
+		std::string darkest_s);
+	//Destructor
+	~Contact();
 
-	public:
-		std::string fname;
-		std::string lname;
-		std::string nname;
-		std::string phone;
-		std::string darkest_s;
+	void print_head(void) const;
+	void print_infos(void) const;
+private:
+	std::string _fname;
+	std::string _lname;
+	std::string _nname;
+	std::string _phone;
+	std::string _darkest_s;
 
 
-}
+};
+
+#endif
