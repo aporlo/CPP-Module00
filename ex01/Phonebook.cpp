@@ -32,27 +32,26 @@ void PhoneBook::add_contact(void)
 	while (darkest_s.empty())
 		std::cin >> darkest_s;
 	Contact contact(fname, lname, nname, phone, darkest_s);
-	if (this->contacts_number < 8) {
+	if (this->contacts_number < MAX_CNT) {
 		this->_contacts[contacts_number] = contact;
 		this->contacts_number++;
-		std::cout << contacts_number << std::endl;
-		if (this->contacts_number == 8)
+		if (this->contacts_number == MAX_CNT)
 			this->contacts_number = 0;
-	} 
+	}
 }
 
 void PhoneBook::find_contact(void) const
 {
 	this->print_contacts();
-	std::cout << "type the index of the contact you want to see" << std::endl;
-	std::cout << "> ";
+	std::cout << GRAY << "Which contact do you want to see?" << std::endl;
+	std::cout << "> " << RESET;
 	int input;
 	std::cin >> input;
-	if (std::cin.fail() || input > 7 || input < 0)
+	if (std::cin.fail() || input > (MAX_CNT - 1) || input < 0)
 	{
 		std::cin.clear();
 		std::cin.ignore(10000, '\n');
-		std::cout << "Invalid index!" << std::endl;
+		std::cout << "no such index exists!" << std::endl;
 		return ;
 	}
 	this->_contacts[input].print_infos();
@@ -61,17 +60,17 @@ void PhoneBook::find_contact(void) const
 void PhoneBook::print_contacts(void) const
 {
 	int i;
-	std::cout << "----------------------------------------------" << std::endl;
-	std::cout << std::setw(10) << std::right << "Index" << "|";
-	std::cout << std::setw(10) << std::right << "First Name" << "|";
-	std::cout << std::setw(10) << std::right << "Last Name" << "|";
-	std::cout << std::setw(10) << std::right << "NickName" << "|" << std::endl;
-	std::cout << "----------------------------------------------" << std::endl;
+	std::cout << YELLOW << "----------------------------------------------" << std::endl;
+	std::cout << YELLOW << "|" << std::setw(WIDTH) << std::right << "Index  " << "|";
+	std::cout << YELLOW << std::setw(WIDTH) << std::right << "First Name" << "|";
+	std::cout << YELLOW <<std::setw(WIDTH) << std::right << "Last Name" << "|";
+	std::cout << YELLOW << std::setw(WIDTH) << std::right << "NickName " << "|" << std::endl;
+	std::cout << YELLOW << "----------------------------------------------" << RESET << std::endl;
 	i = 0;
-	while (i < 8)
+	while (i < MAX_CNT)
 	{
-		std::cout << std::setw(10) << std::right << i << "|";
-		this->_contacts[i].print_head();
+		std::cout << YELLOW << "|" << std::setw(WIDTH) << std::right << i << "|";
+		this->_contacts[i].print_body();
 		i++;
 	}
 

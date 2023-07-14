@@ -17,29 +17,34 @@ Contact::~Contact()
 {
 }
 
-void Contact::print_head(void) const
+std::string	Contact::_fill_text(std::string text) const
+{
+	if (text.length() > WIDTH) {
+		return text.substr(0, (WIDTH - 1)) + ".";
+	} else {
+		return text;
+	}
+}
+
+void Contact::print_body(void) const
 {
 	std::string fname = this->_fname;
 	std::string lname = this->_lname;
 	std::string nname = this->_nname;
-	if (fname.length() > 10)
-		fname = fname.substr(8, 9) + ".";
-	if (lname.length() > 10)
-		lname = lname.substr(8, 9) + ".";
-	if (nname.length() > 10)
-		nname = nname.substr(8, 9) + ".";
-	std::cout << std::setw(10) << std::right << fname << "|";
-	std::cout << std::setw(10) << std::right << lname << "|";
-	std::cout << std::setw(10) << std::right << nname << std::endl;
-
+	std::cout << std::setw(WIDTH) << std::right << _fill_text(fname) << "|";
+	std::cout << std::setw(WIDTH) << std::right << _fill_text(lname) << "|";
+	std::cout << std::setw(WIDTH) << std::right << _fill_text(nname) << "|";
+	std::cout << std::endl;
 }
 
-void Contact::print_infos(void) const {
-	std::cout << "--------------------------------------------" << std::endl;
-	std::cout << "First Name: " << this->_fname << std::endl;
-	std::cout << "Last Name: " << this->_lname << std::endl;
-	std::cout << "Nickname: " << this->_nname << std::endl;
-	std::cout << "Phone Numver: " << this->_phone << std::endl;
-	std::cout << "Darkest Secret: " << this->_darkest_s << std::endl;
-	std::cout << "--------------------------------------------" << std::endl;
+void Contact::print_infos(void) const
+{
+	std::cout << CYAN << "------------------------------------------" << RESET << std::endl;
+	std::cout << BOLD << "First Name: " << GREEN << this->_fname << RESET << std::endl;
+	std::cout << BOLD << "Last Name: " << GREEN << this->_lname << RESET << std::endl;
+	std::cout << BOLD << "Nickname: " << GREEN << this->_nname << RESET << std::endl;
+	std::cout << BOLD << "Phone Numver: " << GREEN << this->_phone << RESET << std::endl;
+	std::cout << BOLD << "Darkest Secret: " << GREEN << this->_darkest_s << RESET << std::endl;
+	std::cout << CYAN << "------------------------------------------" << std::endl;
+	std::cout << RESET;
 }
