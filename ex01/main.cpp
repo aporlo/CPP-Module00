@@ -1,16 +1,8 @@
 #include <iostream>
 #include <cctype>
+#include <cmath>
 #include "Contact.hpp"
 #include "Phonebook.hpp"
-
-// void getcommand(std:string &command) {
-// 	std::cout << "please enter your command: ";
-// 	std::getline(std::sring);
-// 	if (std::cin.eof()) {
-// 		exit(0);
-// 	}
-// 	return command;
-// }
 
 int main()
 {
@@ -19,7 +11,6 @@ int main()
 
 	while (true) {
 		std::cout << "please enter your command: ";
-		std::cout << command << std::endl;
 		if (!std::getline(std::cin, command))
 		{
 			std::cin.clear();
@@ -36,10 +27,11 @@ int main()
 		}
 		else {
 			std::cout << "command must be ADD , SEARCH , EXIT" << std::endl;
+			continue;
 		}
-		std::cin.ignore(20, '\n');
+		std::cin.ignore(10000, '\n');
 		command.clear();
-    }
+	}
 	std::cin.clear();
-    return 0;
+	return 0;
 }
