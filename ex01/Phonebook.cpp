@@ -25,7 +25,7 @@ void PhoneBook::add_contact(void)
 	std::cout << "Nickname:" << std::endl;
 	while (nname.empty())
 		std::cin >> nname;
-	std::cout << "Phone Numver:" << std::endl;
+	std::cout << "Phone Number:" << std::endl;
 	while (phone.empty())
 		std::cin >> phone;
 	std::cout << "Darkest secret:" << std::endl;
