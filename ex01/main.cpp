@@ -17,19 +17,19 @@ int main()
 			break;
 		}
 		if (command == "ADD") {
-            book.add_contact();
+			book.add_contact();
 		} else if (command == "SEARCH") {
 			 std::cout << "SEARCH" << std::endl;
 			 book.find_contact();
 		} else if (command == "EXIT") {
 			std::cout << "bye bye" << std::endl;
+			std::cin.clear();
 			break;
 		}
 		else {
 			std::cout << "command must be ADD , SEARCH , EXIT" << std::endl;
 			continue;
 		}
-		std::cin.ignore(10000, '\n');
 		command.clear();
 	}
 	std::cin.clear();

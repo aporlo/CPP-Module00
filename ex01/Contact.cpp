@@ -45,6 +45,5 @@ void Contact::print_infos(void) const
 	std::cout << BOLD << "Nickname: " << GREEN << this->_nname << RESET << std::endl;
 	std::cout << BOLD << "Phone Numver: " << GREEN << this->_phone << RESET << std::endl;
 	std::cout << BOLD << "Darkest Secret: " << GREEN << this->_darkest_s << RESET << std::endl;
-	std::cout << CYAN << "------------------------------------------" << std::endl;
-	std::cout << RESET;
+	std::cout << CYAN << "------------------------------------------" << RESET << std::endl;
 }

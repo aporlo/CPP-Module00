@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <cctype>
 #include "Contact.hpp"
 
 # define RED		"\033[0;31m"
@@ -36,6 +37,8 @@ public:
 private:
 	int			contacts_number;
 	Contact _contacts[MAX_CNT];
+	std::string	_check_number(std::string phone);
+	void 		_get_phone(std::string phone);
 };
 
 #endif

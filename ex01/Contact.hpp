@@ -21,15 +21,13 @@
 
 
 class Contact {
-	//Constuctors
 public:
 	Contact();
 	Contact(std::string fname,
 		std::string lname,
 		std::string nname,
-		std::string phone,
+		std::string	phone,
 		std::string darkest_s);
-	//Destructor
 	~Contact();
 
 	void print_body(void) const;
@@ -40,7 +38,7 @@ private:
 	std::string _fname;
 	std::string _lname;
 	std::string _nname;
-	std::string _phone;
+	std::string	_phone;
 	std::string _darkest_s;
 };
 

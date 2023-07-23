@@ -18,25 +18,48 @@ void PhoneBook::add_contact(void)
 
 	std::cout << "First Name:" << std::endl;
 	while (fname.empty())
-		std::cin >> fname;
+		std::getline (std::cin, fname);
 	std::cout << "Last Name:" << std::endl;
 	while (lname.empty())
-		std::cin >> lname;
+		std::getline (std::cin, lname);
 	std::cout << "Nickname:" << std::endl;
 	while (nname.empty())
-		std::cin >> nname;
+		std::getline (std::cin, nname);
 	std::cout << "Phone Number:" << std::endl;
 	while (phone.empty())
-		std::cin >> phone;
-	std::cout << "Darkest secret:" << std::endl;
-	while (darkest_s.empty())
-		std::cin >> darkest_s;
-	Contact contact(fname, lname, nname, phone, darkest_s);
-	if (this->contacts_number < MAX_CNT) {
-		this->_contacts[contacts_number] = contact;
-		this->contacts_number++;
-		if (this->contacts_number == MAX_CNT)
-			this->contacts_number = 0;
+		std::getline (std::cin, phone);
+	if(_check_number(phone) == "False")
+	{
+		std::cout << RED << "Phone number must be number!" << RESET << std::endl;
+		add_contact();
+	}
+	else
+	{
+		std::cout << "Darkest secret:" << std::endl;
+		while (darkest_s.empty())
+			std::getline (std::cin, darkest_s);
+		Contact contact(fname, lname, nname, phone, darkest_s);
+		if (this->contacts_number < MAX_CNT) {
+			this->_contacts[contacts_number] = contact;
+			this->contacts_number++;
+			if (this->contacts_number == MAX_CNT)
+				this->contacts_number = 0;
+		}
+	}
+}
+
+
+void PhoneBook::_get_phone(std::string phone)
+{
+	std::cout << "Phone Number:" << std::endl;
+	while (phone.empty())
+	{
+		std::getline (std::cin, phone);
+		if(_check_number(phone) == "False")
+		{
+			std::cout << RED << "Phone number must be number!" << RESET << std::endl;
+			
+		}
 	}
 }
 
@@ -51,10 +74,11 @@ void PhoneBook::find_contact(void) const
 	{
 		std::cin.clear();
 		std::cin.ignore(10000, '\n');
-		std::cout << "no such index exists!" << std::endl;
+		std::cout << RED << "no such index exists!" << RESET << std::endl;
 		return ;
 	}
 	this->_contacts[input].print_infos();
+	std::cin.ignore(10000, '\n');
 }
 
 void PhoneBook::print_contacts(void) const
@@ -74,4 +98,16 @@ void PhoneBook::print_contacts(void) const
 		i++;
 	}
 
+}
+
+std::string	PhoneBook::_check_number(std::string phone)
+{
+	int	len = phone.length();
+
+	for( int i = 0; i < len; i++ ) {
+      if( !isdigit( phone[i] )) {
+         return "False";
+      }
+   }
+   return "TRUE";
 }
