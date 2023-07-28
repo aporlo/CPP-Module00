@@ -10,6 +10,7 @@ PhoneBook::~PhoneBook()
 
 void PhoneBook::add_contact(void)
 {
+	Contact contact;
 	std::string fname;
 	std::string lname;
 	std::string nname;
@@ -38,7 +39,7 @@ void PhoneBook::add_contact(void)
 		std::cout << "Darkest secret:" << std::endl;
 		while (darkest_s.empty())
 			std::getline (std::cin, darkest_s);
-		Contact contact(fname, lname, nname, phone, darkest_s);
+		contact.getContact(fname, lname, nname, phone, darkest_s);
 		if (this->contacts_number < MAX_CNT) {
 			this->_contacts[contacts_number] = contact;
 			this->contacts_number++;

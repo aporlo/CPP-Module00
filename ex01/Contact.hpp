@@ -23,13 +23,13 @@
 class Contact {
 public:
 	Contact();
-	Contact(std::string fname,
-		std::string lname,
-		std::string nname,
-		std::string	phone,
-		std::string darkest_s);
 	~Contact();
 
+	void getContact(std::string fname,
+					std::string lname,
+					std::string nname,
+					std::string	phone,
+					std::string darkest_s);
 	void print_body(void) const;
 	void print_infos(void) const;
 

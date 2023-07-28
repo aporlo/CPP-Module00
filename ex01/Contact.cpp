@@ -1,21 +1,8 @@
 #include "Contact.hpp"
 
-Contact::Contact()
-{
-}
+Contact::Contact(){}
 
-Contact::Contact(std::string fname, std::string lname, std::string nname, std::string phone, std::string darkest_s)
-{
-	this->_fname = fname;
-	this->_lname = lname;
-	this->_nname = nname;
-	this->_phone = phone;
-	this->_darkest_s = darkest_s;
-}
-
-Contact::~Contact()
-{
-}
+Contact::~Contact(){}
 
 std::string	Contact::_fill_text(std::string text) const
 {
@@ -24,6 +11,15 @@ std::string	Contact::_fill_text(std::string text) const
 	} else {
 		return text;
 	}
+}
+
+void Contact::getContact(std::string fname, std::string lname, std::string nname, std::string phone, std::string darkest_s)
+{
+	this->_fname = fname;
+	this->_lname = lname;
+	this->_nname = nname;
+	this->_phone = phone;
+	this->_darkest_s = darkest_s;
 }
 
 void Contact::print_body(void) const
