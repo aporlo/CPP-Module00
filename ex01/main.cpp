@@ -22,12 +22,12 @@ int main()
 			 std::cout << "SEARCH" << std::endl;
 			 book.find_contact();
 		} else if (command == "EXIT") {
-			std::cout << "bye bye" << std::endl;
+			std::cout << GREEN << "bye bye" << RESET << std::endl;
 			std::cin.clear();
 			break;
 		}
 		else {
-			std::cout << "command must be ADD , SEARCH , EXIT" << std::endl;
+			std::cout << RED << "command must be ADD , SEARCH , EXIT" << RESET << std::endl;
 			continue;
 		}
 		command.clear();
